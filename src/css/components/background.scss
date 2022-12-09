@@ -1,0 +1,41 @@
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.bubbles {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  span {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: $blue-lighter;
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #4fc3dc44, 0 0 50px $blue-lighter, 0 0 100px $blue-lighter;
+    animation: animate 15s linear infinite;
+    animation-duration: calc(125s / var(--i));
+
+    &:nth-child(even) {
+      background: $red;
+      box-shadow: 0 0 0 10px #ff2d7544, 0 0 50px $red, 0 0 100px $red;
+    }
+  }
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(100vh) scale(0);
+  }
+  100% {
+    transform: translateY(-10vh) scale(1);
+  }
+}

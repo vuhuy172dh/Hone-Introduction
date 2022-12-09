@@ -1,0 +1,86 @@
+{
+  "name": "webpack-boilerplate",
+  "title": "webpack-boilerplate",
+  "main": "",
+  "private": false,
+  "author": "Naver Vietnam",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development webpack serve --config webpack.config.babel.js",
+    "build": "cross-env NODE_ENV=production webpack --progress --config webpack.config.babel.js",
+    "check-types": "tsc --project tsconfig.json --noEmit",
+    "check-size": "webpack --config webpack.config.babel.js --profile --json > webpack-stats.json && webpack-bundle-analyzer webpack-stats.json",
+    "test": "jest",
+    "test:watch": "yarn test --watch",
+    "lint": "eslint --ext .ts --ignore-path .gitignore .",
+    "lint:fix": "npm run lint -- --fix",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.9",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/preset-env": "^7.18.9",
+    "@babel/register": "^7.18.9",
+    "@types/jest": "^28.1.4",
+    "@types/node": "^18.11.9",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "babel-jest": "^28.1.1",
+    "babel-loader": "^8.2.5",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "core-js": "3",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.7.1",
+    "css-minimizer-webpack-plugin": "^4.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-jest-formatting": "^3.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-webpack-plugin": "^3.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "husky": "^7.0.0",
+    "image-minimizer-webpack-plugin": "^3.2.3",
+    "imagemin-svgo": "^10.0.1",
+    "jest": "^28.1.2",
+    "lint-staged": ">=13",
+    "mini-css-extract-plugin": "^2.6.1",
+    "prettier": "^2.7.1",
+    "sass": "^1.56.1",
+    "sass-loader": "^13.2.0",
+    "style-loader": "^3.3.1",
+    "stylelint": "^14.9.1",
+    "stylelint-config-recess-order": "^3.0.0",
+    "stylelint-config-standard": "^26.0.0",
+    "stylelint-webpack-plugin": "^3.3.0",
+    "terser-webpack-plugin": "^5.3.3",
+    "ts-jest": "^28.0.7",
+    "ts-loader": "^9.3.1",
+    "typescript": "^4.5.0",
+    "webpack": "^5.73.0",
+    "webpack-bundle-analyzer": "^4.5.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^v4.9.3",
+    "webpack-merge": "^5.8.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "npm run lint:fix"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "eslint-config-naver": "^2.1.0",
+    "express": "^4.18.2"
+  }
+}
